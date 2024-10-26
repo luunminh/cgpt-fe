@@ -1,0 +1,59 @@
+{
+  "cSpell.words": [
+    "apisauce",
+    "APPT",
+    "Autosize",
+    "buildspec",
+    "checkin",
+    "Checkin",
+    "commitlint",
+    "Datahouse",
+    "datepicker",
+    "fontsource",
+    "formik",
+    "Formik",
+    "hookform",
+    "lightbox",
+    "vizplatform",
+    "mui-datatables",
+    "notTrimmable",
+    "redux",
+    "signin",
+    "Signin",
+    "tanstack",
+    "toastify",
+    "Toastify",
+    "unmatch",
+    "Upsert",
+    "VITE",
+    "YESNO",
+    "reduxjs",
+    "NOTIF",
+    "libphonenumber",
+    "roboto",
+    "zustand",
+    "caigiaphaitra",
+    "tailwindcss",
+    "cgpt"
+  ],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll": "always"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

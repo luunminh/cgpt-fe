@@ -1,25 +1,48 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "preserve",
-    "incremental": true,
+    "typeRoots": ["./node_modules/@types/"],
+    "strictNullChecks": false,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@shared/*": ["./src/*"]
-    }
+      "@app": ["./src/app"],
+      "@app/*": ["./src/app/*"],
+
+      "@core": ["./src/entities/"],
+      "@core/*": ["./src/entities/*"],
+
+      "@config": ["./src/config/"],
+      "@config/*": ["./src/config/*"],
+
+      "@providers": ["./src/providers"],
+      "@providers/*": ["./src/providers/*"],
+
+      "@widgets": ["./src/widgets/"],
+      "@widgets/*": ["./src/widgets/*"],
+
+      "@ui/*": ["./src/shared/ui/base/*"],
+      "@shared/*": ["./src/shared/*"]
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
