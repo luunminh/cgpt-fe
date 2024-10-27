@@ -27,6 +27,9 @@
       "@app": ["./src/app"],
       "@app/*": ["./src/app/*"],
 
+      "@assets": ["./src/assets/"],
+      "@assets/*": ["./src/assets/*"],
+
       "@core": ["./src/entities/"],
       "@core/*": ["./src/entities/*"],
 

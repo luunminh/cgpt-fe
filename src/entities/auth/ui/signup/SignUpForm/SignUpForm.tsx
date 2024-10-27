@@ -125,7 +125,7 @@ const SignUpForm = () => {
           </Form>
         </CardContent>
         <CardFooter className="flex flex-row gap-1 justify-center">
-          <span className="text-sm font-bold">Có tài khoản rồi thì?</span>
+          <span className="text-sm font-bold">Có tài khoản rồi thì</span>
           <div className="flex flex-row">
             <Link
               href={authPaths.signin}

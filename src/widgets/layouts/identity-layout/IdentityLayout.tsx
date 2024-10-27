@@ -1,4 +1,5 @@
 import { Flex } from '@ui/flex';
+import Navbar from '@widgets/navbar';
 import { PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren;
@@ -6,6 +7,7 @@ type Props = PropsWithChildren;
 const IdentityLayout = ({ children }: Props) => {
   return (
     <>
+      <Navbar.Identity />
       <div
         style={{
           backgroundImage: 'url(./auth-bg.webp)',

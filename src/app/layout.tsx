@@ -1,5 +1,5 @@
 import { configs } from '@config/index';
-import { QueryProvider } from '@providers';
+import { ModalProvider, QueryProvider } from '@providers';
 import { Toaster } from '@ui/toaster';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="en" className={font.className}>
       <body className="min-h-[90vh]" suppressHydrationWarning={true}>
         <QueryProvider>
+          <ModalProvider />
           <Toaster />
+
           <main style={{ marginTop: configs.NAVBAR_HEIGHT }}>{children}</main>
         </QueryProvider>
       </body>
