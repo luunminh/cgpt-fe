@@ -1,4 +1,4 @@
-export type SignupPayload = {
+export type SignUpPayload = {
   username: string;
   firstName: string;
   lastName: string;
@@ -6,4 +6,4 @@ export type SignupPayload = {
   password: string;
 };
 
-export type SignupResponse = {};
+export type SignUpResponse = {};

@@ -1,8 +1,8 @@
 import { HttpService } from '@shared/services';
 import { newCancelToken } from '@shared/utils';
-import { SignupPayload } from '.';
+import { SignUpPayload } from '.';
 
-const signup = (payload: SignupPayload) => {
+const signup = (payload: SignUpPayload) => {
   return HttpService.post(`/cgpt-svc/auth/signup`, payload, newCancelToken());
 };
 

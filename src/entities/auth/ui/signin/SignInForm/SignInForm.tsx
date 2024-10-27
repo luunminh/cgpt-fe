@@ -35,9 +35,9 @@ const SignInForm = () => {
 
   return (
     <div className="container md:max-w-[600px] sm:w-full">
-      <Card className="rounded-lg">
+      <Card className="sm:rounded-lg">
         <CardHeader>
-          <CardTitle className="text-center text-2xl text-primary">Đăng nhập</CardTitle>
+          <CardTitle className="text-2xl text-primary">Đăng nhập</CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -49,7 +49,7 @@ const SignInForm = () => {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="Username" {...field} />
+                      <Input placeholder="Username" required {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -62,7 +62,7 @@ const SignInForm = () => {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="Password" {...field} />
+                      <Input required type="password" placeholder="Password" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

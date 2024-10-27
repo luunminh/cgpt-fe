@@ -9,3 +9,8 @@ export enum TableParamKeyEnum {
   SEARCH = 'search',
   ORDER = 'order',
 }
+
+export enum CommonQueryKey {
+  TAB = 'tab',
+  REDIRECT_URL = 'redirectUrl',
+}
