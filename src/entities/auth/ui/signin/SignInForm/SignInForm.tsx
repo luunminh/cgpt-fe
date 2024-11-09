@@ -2,8 +2,12 @@
 
 import { authPaths } from '@app/(auth)/_helpers';
 import { useLogin } from '@core/auth';
+import { useGetMyProfile } from '@core/profile/api';
+import { UserType } from '@core/profile/base';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ErrorService } from '@shared/services';
+import { ErrorService, TokenService } from '@shared/services';
+import { useAuthStore } from '@shared/store';
+import { useToast } from '@shared/ui/hooks/use-toast';
 import { Button } from '@ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@ui/form';
@@ -15,6 +19,24 @@ import { SignInFormHelpers, SignInFormType } from './SignInForm.helpers';
 
 const SignInForm = () => {
   const { onLogin, isPending } = useLogin();
+  const { toast } = useToast();
+
+  const { onSetUserProfile } = useAuthStore();
+
+  const { onGetMyProfile } = useGetMyProfile({
+    onSuccess(data) {
+      onSetUserProfile(data);
+
+      if (data.userType === UserType.USER) {
+        route.push('/home');
+      }
+
+      if (data.userType === UserType.ADMIN) {
+        route.push('/admin');
+      }
+    },
+    onError: (error) => ErrorService.handler(error),
+  });
 
   const form = useForm<SignInFormType>({
     defaultValues: SignInFormHelpers.initValue,
@@ -26,8 +48,14 @@ const SignInForm = () => {
 
   const onValidSubmit = (values: SignInFormType) => {
     onLogin(values, {
-      onSuccess: () => {
-        route.push('/');
+      onSuccess: ({ data }) => {
+        toast({ title: 'Đăng nhập thành công', duration: 2000 });
+
+        TokenService.saveTokens([
+          { name: 'accessToken', value: data.accessToken },
+          { name: 'refreshToken', value: data.refreshToken },
+        ]);
+        onGetMyProfile();
       },
       onError: (error) => ErrorService.handler({ error }),
     });

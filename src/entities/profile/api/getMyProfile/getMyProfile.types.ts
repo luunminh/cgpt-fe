@@ -1,3 +1,3 @@
-export type GetMyProfilePayload = {}
+import { TProfile } from '@core/profile/base';
 
-export type GetMyProfileResponse = {}
+export type GetMyProfileResponse = TProfile & {};

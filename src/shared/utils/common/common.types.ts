@@ -16,3 +16,5 @@ export interface OptionType {
   value: string;
   [key: string]: any;
 }
+
+export type Callback<T = any> = (..._args: T[]) => void;

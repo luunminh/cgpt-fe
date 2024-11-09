@@ -1,16 +1,18 @@
+import { newCancelToken } from '@shared/utils';
+import { ErrorService } from '../error/error.service';
+import { ApiResponseType, HttpService } from '../http/http.service';
+
 const AUTHENTICATION_KEY = 'accessToken';
 const REFRESH_TOKEN_KEY = 'refreshToken';
 
-export type Tokens = {
-  tokens: {
-    name: string;
-    value: string;
-  }[];
-};
+export interface IToken {
+  name: string;
+  value: string;
+}
 
 export class TokenService {
-  static saveTokens(tokens: Tokens): void {
-    tokens.tokens.forEach((token) => {
+  static saveTokens(tokens: IToken[]): void {
+    tokens.forEach((token) => {
       window.localStorage.setItem(token.name, token.value);
     });
   }
@@ -35,6 +37,24 @@ export class TokenService {
   }
 
   static async renews(): Promise<void> {
-    const rfToken = this.getRefreshToken();
+    const refreshToken = this.getRefreshToken();
+
+    try {
+      const responses = await HttpService.post<
+        ApiResponseType<{ accessToken: string; refreshToken: string }>
+      >('/cgpt-svc/auth/renew-tokens', { refreshToken }, newCancelToken());
+
+      const {
+        data: { data },
+      } = responses;
+
+      TokenService.saveTokens([
+        { name: 'accessToken', value: data.accessToken },
+        { name: 'refreshToken', value: data.refreshToken },
+      ]);
+    } catch (error: any) {
+      ErrorService.handler(error);
+      this.clean();
+    }
   }
 }

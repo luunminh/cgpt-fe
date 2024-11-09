@@ -1,12 +1,12 @@
+import { TProfile, UserType } from '@core/profile/base';
 import { create } from 'zustand';
-import { UserType } from './auth-store.types';
 
 type AuthStore = {
   isAuthenticated: boolean;
   onSetIsAuthenticated: (isAuthenticated: boolean) => void;
 
-  user: any;
-  onSetUserProfile: (user: any) => void;
+  user: TProfile;
+  onSetUserProfile: (user: TProfile) => void;
 
   permissions: string[];
   onSetMyPermissions: (myPermissionsString: string) => void;
@@ -27,11 +27,11 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 
   user: null,
   userType: UserType.USER,
-  onSetUserProfile: (user: any) => {
+  onSetUserProfile: (user: TProfile) => {
     set({ user });
     set({ userType: user?.userType });
     set({
-      permissions: user.permission,
+      permissions: user.permissions,
     });
   },
 

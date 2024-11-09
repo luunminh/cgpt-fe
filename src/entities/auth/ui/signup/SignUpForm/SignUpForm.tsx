@@ -1,5 +1,6 @@
 'use client';
 
+import { authPaths } from '@app/(auth)/_helpers';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ErrorService } from '@shared/services';
 import { useToast } from '@shared/ui/hooks/use-toast';
@@ -10,7 +11,6 @@ import { Input } from '@ui/input';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { authPaths } from 'src/app/(auth)/_helpers';
 import { useSignUp } from 'src/entities/auth/api';
 import { SignUpFormHelpers, SignUpFormType } from './SignUpForm.helpers';
 

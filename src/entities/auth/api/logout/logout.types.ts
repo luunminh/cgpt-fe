@@ -1,3 +1,3 @@
-export type LogoutPayload = {}
+export type LogoutPayload = void;
 
-export type LogoutResponse = {}
+export type LogoutResponse = {};

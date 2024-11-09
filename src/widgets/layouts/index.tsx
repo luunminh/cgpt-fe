@@ -1,9 +1,10 @@
 import { IdentityLayout } from './identity-layout';
+import { UserLayout } from './user-layout';
 
 const Layout = {
   Identity: IdentityLayout,
+  User: UserLayout,
   Admin: <div>admin</div>,
-  User: <div>user</div>,
 };
 
 export default Layout;

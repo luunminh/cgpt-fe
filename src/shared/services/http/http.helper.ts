@@ -72,7 +72,6 @@ export const configApiInstance = (api: ApisauceInstance) => {
 
         if (isEmpty(accessToken)) {
           TokenService.clean();
-          // Navigator.jumpToWebIdentity();
           ErrorService.showErrorToast({ message: error.response.data.message });
 
           return Promise.reject(error);
