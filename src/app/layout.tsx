@@ -22,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={font.className}>
-      <body className="min-h-[90vh]" suppressHydrationWarning={true}>
+      <body
+        className="min-h-[90vh]"
+        suppressHydrationWarning={true}
+        style={{ height: `calc(100vh - ${configs.NAVBAR_HEIGHT}px)` }}
+      >
         <QueryProvider>
           <ModalProvider />
           <Toaster />

@@ -8,16 +8,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ErrorService, TokenService } from '@shared/services';
 import { useAuthStore } from '@shared/store';
 import { useToast } from '@shared/ui/hooks/use-toast';
+import { CommonQueryKey } from '@shared/utils';
 import { Button } from '@ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@ui/form';
 import { Input } from '@ui/input';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { SignInFormHelpers, SignInFormType } from './SignInForm.helpers';
 
 const SignInForm = () => {
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get(CommonQueryKey.REDIRECT_URL);
+
   const { onLogin, isPending } = useLogin();
   const { toast } = useToast();
 
@@ -26,6 +30,8 @@ const SignInForm = () => {
   const { onGetMyProfile } = useGetMyProfile({
     onSuccess(data) {
       onSetUserProfile(data);
+
+      if (redirectUrl) return route.push(redirectUrl);
 
       if (data.userType === UserType.USER) {
         route.push('/home');

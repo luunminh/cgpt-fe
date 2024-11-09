@@ -1,6 +1,7 @@
 import { newCancelToken } from '@shared/utils';
+import axios from 'axios';
 import { ErrorService } from '../error/error.service';
-import { ApiResponseType, HttpService } from '../http/http.service';
+import { ApiResponseType } from '../http/http.service';
 
 const AUTHENTICATION_KEY = 'accessToken';
 const REFRESH_TOKEN_KEY = 'refreshToken';
@@ -40,7 +41,7 @@ export class TokenService {
     const refreshToken = this.getRefreshToken();
 
     try {
-      const responses = await HttpService.post<
+      const responses = await axios.post<
         ApiResponseType<{ accessToken: string; refreshToken: string }>
       >('/cgpt-svc/auth/renew-tokens', { refreshToken }, newCancelToken());
 
