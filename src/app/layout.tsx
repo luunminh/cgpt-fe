@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className={font.className}>
       <body
         className="min-h-[90vh]"
-        suppressHydrationWarning={true}
+        suppressHydrationWarning
         style={{ height: `calc(100vh - ${configs.NAVBAR_HEIGHT}px)` }}
       >
         <QueryProvider>

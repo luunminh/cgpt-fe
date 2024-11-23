@@ -10,7 +10,7 @@ const IdentityLayout = ({ children }: Props) => {
       <Navbar.Identity />
       <div
         style={{
-          backgroundImage: 'url(./auth-bg.webp)',
+          backgroundImage: 'url(/images/auth-bg.webp)',
         }}
         className="blur-sm bg-cover bg-no-repeat absolute top-0 h-full w-full"
       />

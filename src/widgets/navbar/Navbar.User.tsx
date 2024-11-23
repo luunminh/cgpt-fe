@@ -39,7 +39,7 @@ export default function NavbarUser() {
   const avatarCmp = useMemo(
     () => (
       <Avatar className="rounded-lg">
-        <AvatarImage src={profile?.avatarUrl || '/src/assets/images/avatar.png'} alt="Avatar" />
+        <AvatarImage src={profile?.avatarUrl || '/images/avatar.png'} alt="Avatar" />
         <AvatarFallback>{getAvatarName()}</AvatarFallback>
       </Avatar>
     ),
@@ -52,7 +52,7 @@ export default function NavbarUser() {
       {!isMobileScreen && (
         <>
           <Link href="/">
-            <img src="./logo.png" width={90} height={70} />
+            <img src="/images/logo.png" width={90} height={70} />
           </Link>
           <NavbarUser.Link />
         </>
