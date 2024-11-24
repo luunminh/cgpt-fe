@@ -1,5 +1,6 @@
 import { configs } from '@config/index';
 import { ModalProvider, QueryProvider } from '@providers';
+import { ThemeProvider } from '@providers/theme-provider';
 import { Toaster } from '@ui/toaster';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
@@ -27,12 +28,19 @@ export default function RootLayout({
         suppressHydrationWarning
         style={{ height: `calc(100vh - ${configs.NAVBAR_HEIGHT}px)` }}
       >
-        <QueryProvider>
-          <ModalProvider />
-          <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <QueryProvider>
+            <ModalProvider />
+            <Toaster />
 
-          <main style={{ marginTop: configs.NAVBAR_HEIGHT }}>{children}</main>
-        </QueryProvider>
+            <main style={{ marginTop: configs.NAVBAR_HEIGHT }}>{children}</main>
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

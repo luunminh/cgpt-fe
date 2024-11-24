@@ -19,6 +19,7 @@ import {
 import { Flex } from '@ui/flex';
 import { Sheet, SheetContent, SheetTrigger } from '@ui/sheet';
 import { Stack } from '@ui/stack';
+import { ThemeToggle } from '@widgets/theme-toggle';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Fragment, PropsWithChildren, useCallback, useMemo } from 'react';
@@ -47,7 +48,7 @@ export default function NavbarUser() {
   );
 
   return (
-    <nav className="py-2 px-4 z-10 fixed top-0 flex justify-between items-center w-full bg-white max-h-[60px] border-b-[1.5px]">
+    <nav className="py-2 px-4 z-10 fixed top-0 flex justify-between items-center w-full bg-white dark:bg-black max-h-[60px] border-b-[1.5px]">
       {isMobileScreen && <NavbarUser.Sheet />}
       {!isMobileScreen && (
         <>
@@ -57,7 +58,8 @@ export default function NavbarUser() {
           <NavbarUser.Link />
         </>
       )}
-      <Flex gap={2}>
+      <Flex gap={3} justify="center">
+        <ThemeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div className="flex gap-2 cursor-pointer items-center">
@@ -139,7 +141,7 @@ NavbarUser.Menu = ({ children }: PropsWithChildren) => {
   ];
 
   return (
-    <DropdownMenuContent align="end" className="bg-white">
+    <DropdownMenuContent align="end" className="bg-white dark:bg-black">
       <div className="flex items-center gap-2 p-2">
         {children}
         <div className="grid gap-0.5 leading-none">

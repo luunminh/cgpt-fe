@@ -4,7 +4,7 @@ import { Flex } from '@ui/flex';
 
 export default function HomePage() {
   return (
-    <div className="container border-primary rounded-md border-2 h-[80vh] bg-white">
+    <div className="container border-primary rounded-md border-2 h-[80vh] bg-white dark:bg-black">
       <CardHeader>
         <Flex justify="space-between" align="center" gap={2}>
           <CardTitle className="text-2xl">Dashboard</CardTitle>

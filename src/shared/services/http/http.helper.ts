@@ -22,7 +22,7 @@ export async function responseWrapper<T>(func: ApiCall, [...args]: any[] = []): 
   });
 }
 
-export const getResponseData = (data: { data: any }) => data.data;
+export const getResponseData = <T = any>(data: { data: T }) => data.data;
 
 export interface ApiResponseType<T> {
   data: T;
